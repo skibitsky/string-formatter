@@ -43,7 +43,7 @@ Open *Packages/manifest.json* with your favorite text editor. Add the following 
 
     {
         "dependencies": {
-            "com.skibitsky.unity-rich-text": "https://github.com/skibitsky/string-formatter.git"
+            "com.skibitsky.string-formatter": "https://github.com/skibitsky/string-formatter.git"
         }
     }
 
