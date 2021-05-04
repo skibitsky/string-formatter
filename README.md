@@ -1,4 +1,4 @@
-# String Formatter
+# String Formatter [![openupm](https://img.shields.io/npm/v/com.skibitsky.string-formatter?label=openupm&registry_uri=https://package.openupm.com)](https://openupm.com/packages/com.skibitsky.string-formatter/)
 > Format strings with HTML-like tags (Unity's Rich Text) in LINQ fashion
 
 ## Usage
@@ -43,7 +43,7 @@ Open *Packages/manifest.json* with your favorite text editor. Add the following 
 
     {
         "dependencies": {
-            "com.skibitsky.unity-rich-text": "https://github.com/skibitsky/string-formatter.git"
+            "com.skibitsky.string-formatter": "https://github.com/skibitsky/string-formatter.git"
         }
     }
 
