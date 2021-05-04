@@ -47,7 +47,7 @@ namespace Skibitsky.Unity.StringFormatter
             source.Append("<b>");
             source.PushToEnd("</b>");
 
-            return source.Italic();
+            return source;
         }
         
         public static FormattedStringBuilder Italic(this FormattedStringBuilder source)
