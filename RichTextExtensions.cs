@@ -2,37 +2,40 @@ namespace Skibitsky.Unity.StringFormatter
 {
     public static class RichTextExtensions
     {
-        public static FormattedStringBuilder Size(this string source, int size) => new FormattedStringBuilder(source).Size(size);
-        public static FormattedStringBuilder Bold(this string source) => new FormattedStringBuilder(source).Bold();
-        public static FormattedStringBuilder Italic(this string source) => new FormattedStringBuilder(source).Italic();
-        public static FormattedStringBuilder Color(this string source, string color) => new FormattedStringBuilder(source).Color(color);
+        public static FormattedStringBuilder Size(this string source, int size, bool skip = false) => new FormattedStringBuilder(source).Size(size, skip);
+        public static FormattedStringBuilder Bold(this string source, bool skip = false) => new FormattedStringBuilder(source).Bold(skip);
+        public static FormattedStringBuilder Italic(this string source, bool skip = false) => new FormattedStringBuilder(source).Italic(skip);
+        public static FormattedStringBuilder Color(this string source, string color, bool skip = false) => new FormattedStringBuilder(source).Color(color, skip);
 
-        public static FormattedStringBuilder Aqua(this string source) => new FormattedStringBuilder(source).Aqua();
-        public static FormattedStringBuilder Black(this string source) => new FormattedStringBuilder(source).Black();
-        public static FormattedStringBuilder Blue(this string source) => new FormattedStringBuilder(source).Blue();
-        public static FormattedStringBuilder Brown(this string source) => new FormattedStringBuilder(source).Brown();
-        public static FormattedStringBuilder Cyan(this string source) => new FormattedStringBuilder(source).Cyan();
-        public static FormattedStringBuilder DarkBlue(this string source) => new FormattedStringBuilder(source).DarkBlue();
-        public static FormattedStringBuilder Fuchsia(this string source) => new FormattedStringBuilder(source).Fuchsia();
-        public static FormattedStringBuilder Green(this string source) => new FormattedStringBuilder(source).Green();
-        public static FormattedStringBuilder Grey(this string source) => new FormattedStringBuilder(source).Grey();
-        public static FormattedStringBuilder LightBlue(this string source) => new FormattedStringBuilder(source).LightBlue();
-        public static FormattedStringBuilder Lime(this string source) => new FormattedStringBuilder(source).Lime();
-        public static FormattedStringBuilder Magenta(this string source) => new FormattedStringBuilder(source).Magenta();
-        public static FormattedStringBuilder Maroon(this string source) => new FormattedStringBuilder(source).Maroon();
-        public static FormattedStringBuilder Navy(this string source) => new FormattedStringBuilder(source).Navy();
-        public static FormattedStringBuilder Olive(this string source) => new FormattedStringBuilder(source).Olive();
-        public static FormattedStringBuilder Orange(this string source) => new FormattedStringBuilder(source).Orange();
-        public static FormattedStringBuilder Purple(this string source) => new FormattedStringBuilder(source).Purple();
-        public static FormattedStringBuilder Red(this string source) => new FormattedStringBuilder(source).Red();
-        public static FormattedStringBuilder Silver(this string source) => new FormattedStringBuilder(source).Silver();
-        public static FormattedStringBuilder Teal(this string source) => new FormattedStringBuilder(source).Teal();
-        public static FormattedStringBuilder White(this string source) => new FormattedStringBuilder(source).White();
-        public static FormattedStringBuilder Yellow(this string source) => new FormattedStringBuilder(source).Yellow();
+        public static FormattedStringBuilder Aqua(this string source, bool skip = false) => new FormattedStringBuilder(source).Aqua(skip);
+        public static FormattedStringBuilder Black(this string source, bool skip = false) => new FormattedStringBuilder(source).Black(skip);
+        public static FormattedStringBuilder Blue(this string source, bool skip = false) => new FormattedStringBuilder(source).Blue(skip);
+        public static FormattedStringBuilder Brown(this string source, bool skip = false) => new FormattedStringBuilder(source).Brown(skip);
+        public static FormattedStringBuilder Cyan(this string source, bool skip = false) => new FormattedStringBuilder(source).Cyan(skip);
+        public static FormattedStringBuilder DarkBlue(this string source, bool skip = false) => new FormattedStringBuilder(source).DarkBlue(skip);
+        public static FormattedStringBuilder Fuchsia(this string source, bool skip = false) => new FormattedStringBuilder(source).Fuchsia(skip);
+        public static FormattedStringBuilder Green(this string source, bool skip = false) => new FormattedStringBuilder(source).Green(skip);
+        public static FormattedStringBuilder Grey(this string source, bool skip = false) => new FormattedStringBuilder(source).Grey(skip);
+        public static FormattedStringBuilder LightBlue(this string source, bool skip = false) => new FormattedStringBuilder(source).LightBlue(skip);
+        public static FormattedStringBuilder Lime(this string source, bool skip = false) => new FormattedStringBuilder(source).Lime(skip);
+        public static FormattedStringBuilder Magenta(this string source, bool skip = false) => new FormattedStringBuilder(source).Magenta(skip);
+        public static FormattedStringBuilder Maroon(this string source, bool skip = false) => new FormattedStringBuilder(source).Maroon(skip);
+        public static FormattedStringBuilder Navy(this string source, bool skip = false) => new FormattedStringBuilder(source).Navy(skip);
+        public static FormattedStringBuilder Olive(this string source, bool skip = false) => new FormattedStringBuilder(source).Olive(skip);
+        public static FormattedStringBuilder Orange(this string source, bool skip = false) => new FormattedStringBuilder(source).Orange(skip);
+        public static FormattedStringBuilder Purple(this string source, bool skip = false) => new FormattedStringBuilder(source).Purple(skip);
+        public static FormattedStringBuilder Red(this string source, bool skip = false) => new FormattedStringBuilder(source).Red(skip);
+        public static FormattedStringBuilder Silver(this string source, bool skip = false) => new FormattedStringBuilder(source).Silver(skip);
+        public static FormattedStringBuilder Teal(this string source, bool skip = false) => new FormattedStringBuilder(source).Teal(skip);
+        public static FormattedStringBuilder White(this string source, bool skip = false) => new FormattedStringBuilder(source).White(skip);
+        public static FormattedStringBuilder Yellow(this string source, bool skip = false) => new FormattedStringBuilder(source).Yellow(skip);
 
         
-        public static FormattedStringBuilder Size(this FormattedStringBuilder source, int size)
+        public static FormattedStringBuilder Size(this FormattedStringBuilder source, int size, bool skip = false)
         {
+            if (skip)
+                return source;
+            
             source.Append("<size=");
             source.Append(size.ToString());
             source.Append(">");
@@ -42,24 +45,33 @@ namespace Skibitsky.Unity.StringFormatter
             return source;
         }
 
-        public static FormattedStringBuilder Bold(this FormattedStringBuilder source)
+        public static FormattedStringBuilder Bold(this FormattedStringBuilder source, bool skip = false)
         {
+            if (skip)
+                return source;
+            
             source.Append("<b>");
             source.PushToEnd("</b>");
 
             return source;
         }
         
-        public static FormattedStringBuilder Italic(this FormattedStringBuilder source)
+        public static FormattedStringBuilder Italic(this FormattedStringBuilder source, bool skip = false)
         {
+            if (skip)
+                return source;
+            
             source.Append("<i>");
             source.PushToEnd("</i>");
 
             return source;
         }
         
-        public static FormattedStringBuilder Color(this FormattedStringBuilder source, string color)
+        public static FormattedStringBuilder Color(this FormattedStringBuilder source, string color, bool skip = false)
         {
+            if (skip)
+                return source;
+            
             source.Append("<color=");
             source.Append(color);
             source.Append(">");
@@ -69,27 +81,27 @@ namespace Skibitsky.Unity.StringFormatter
             return source;
         }
 
-        public static FormattedStringBuilder Aqua(this FormattedStringBuilder source) => source.Color("aqua");
-        public static FormattedStringBuilder Black(this FormattedStringBuilder source) => source.Color("black");
-        public static FormattedStringBuilder Blue(this FormattedStringBuilder source) => source.Color("blue");
-        public static FormattedStringBuilder Brown(this FormattedStringBuilder source) => source.Color("brown");
-        public static FormattedStringBuilder Cyan(this FormattedStringBuilder source) => source.Color("cyan");
-        public static FormattedStringBuilder DarkBlue(this FormattedStringBuilder source) => source.Color("darkblue");
-        public static FormattedStringBuilder Fuchsia(this FormattedStringBuilder source) => source.Color("fuchsia");
-        public static FormattedStringBuilder Green(this FormattedStringBuilder source) => source.Color("green");
-        public static FormattedStringBuilder Grey(this FormattedStringBuilder source) => source.Color("grey");
-        public static FormattedStringBuilder LightBlue(this FormattedStringBuilder source) => source.Color("lightblue");
-        public static FormattedStringBuilder Lime(this FormattedStringBuilder source) => source.Color("lime");
-        public static FormattedStringBuilder Magenta(this FormattedStringBuilder source) => source.Color("magenta");
-        public static FormattedStringBuilder Maroon(this FormattedStringBuilder source) => source.Color("maroon");
-        public static FormattedStringBuilder Navy(this FormattedStringBuilder source) => source.Color("navy");
-        public static FormattedStringBuilder Olive(this FormattedStringBuilder source) => source.Color("olive");
-        public static FormattedStringBuilder Orange(this FormattedStringBuilder source) => source.Color("orange");
-        public static FormattedStringBuilder Purple(this FormattedStringBuilder source) => source.Color("purple");
-        public static FormattedStringBuilder Red(this FormattedStringBuilder source) => source.Color("red");
-        public static FormattedStringBuilder Silver(this FormattedStringBuilder source) => source.Color("silver");
-        public static FormattedStringBuilder Teal(this FormattedStringBuilder source) => source.Color("teal");
-        public static FormattedStringBuilder White(this FormattedStringBuilder source) => source.Color("white");
-        public static FormattedStringBuilder Yellow(this FormattedStringBuilder source) => source.Color("yellow");
+        public static FormattedStringBuilder Aqua(this FormattedStringBuilder source, bool skip = false) => source.Color("aqua", skip);
+        public static FormattedStringBuilder Black(this FormattedStringBuilder source, bool skip = false) => source.Color("black", skip);
+        public static FormattedStringBuilder Blue(this FormattedStringBuilder source, bool skip = false) => source.Color("blue", skip);
+        public static FormattedStringBuilder Brown(this FormattedStringBuilder source, bool skip = false) => source.Color("brown", skip);
+        public static FormattedStringBuilder Cyan(this FormattedStringBuilder source, bool skip = false) => source.Color("cyan", skip);
+        public static FormattedStringBuilder DarkBlue(this FormattedStringBuilder source, bool skip = false) => source.Color("darkblue", skip);
+        public static FormattedStringBuilder Fuchsia(this FormattedStringBuilder source, bool skip = false) => source.Color("fuchsia", skip);
+        public static FormattedStringBuilder Green(this FormattedStringBuilder source, bool skip = false) => source.Color("green", skip);
+        public static FormattedStringBuilder Grey(this FormattedStringBuilder source, bool skip = false) => source.Color("grey", skip);
+        public static FormattedStringBuilder LightBlue(this FormattedStringBuilder source, bool skip = false) => source.Color("lightblue", skip);
+        public static FormattedStringBuilder Lime(this FormattedStringBuilder source, bool skip = false) => source.Color("lime", skip);
+        public static FormattedStringBuilder Magenta(this FormattedStringBuilder source, bool skip = false) => source.Color("magenta", skip);
+        public static FormattedStringBuilder Maroon(this FormattedStringBuilder source, bool skip = false) => source.Color("maroon", skip);
+        public static FormattedStringBuilder Navy(this FormattedStringBuilder source, bool skip = false) => source.Color("navy", skip);
+        public static FormattedStringBuilder Olive(this FormattedStringBuilder source, bool skip = false) => source.Color("olive", skip);
+        public static FormattedStringBuilder Orange(this FormattedStringBuilder source, bool skip = false) => source.Color("orange", skip);
+        public static FormattedStringBuilder Purple(this FormattedStringBuilder source, bool skip = false) => source.Color("purple", skip);
+        public static FormattedStringBuilder Red(this FormattedStringBuilder source, bool skip = false) => source.Color("red", skip);
+        public static FormattedStringBuilder Silver(this FormattedStringBuilder source, bool skip = false) => source.Color("silver", skip);
+        public static FormattedStringBuilder Teal(this FormattedStringBuilder source, bool skip = false) => source.Color("teal", skip);
+        public static FormattedStringBuilder White(this FormattedStringBuilder source, bool skip = false) => source.Color("white", skip);
+        public static FormattedStringBuilder Yellow(this FormattedStringBuilder source, bool skip = false) => source.Color("yellow", skip);
     }
 }
