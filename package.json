@@ -1,6 +1,6 @@
 {
   "name": "com.skibitsky.string-formatter",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "displayName": "String Formatter",
   "description": "Format strings with HTML-like tags (Unity's Rich Text) in LINQ fashion",
   "repository": "skibitsky/string-formatter",
